@@ -3,10 +3,12 @@ var React = require('react');
 export default class MyComponent extends React.Component {
     constructor(props) {
         super(props);
-        console.log("My Component");
+        this.state = {
+            message: "Hello " + props.name
+        }
     }
 
     render() {
-        return <div>My Component</div>;
+        return <div>{this.state.message}</div>;
     }
 }

@@ -5,6 +5,7 @@ var watchify     = require('watchify');
 var browserify   = require('browserify');
 var browserSync  = require('browser-sync');
 var babelify     = require('babelify');
+var sass         = require('gulp-sass');
 
 // Input file.
 var opts = {
@@ -34,17 +35,22 @@ function bundle() {
         .pipe(browserSync.reload({stream: true, once: true}));
 }
 
-/**
- * Gulp task alias
- */
 gulp.task('bundle', function () {
     return bundle();
 });
 
-/**
- * First bundle, then serve from the ./app directory
- */
-gulp.task('default', ['bundle'], function () {
+gulp.task('sass', function () {
+  gulp.src('./app/sass/**/*.scss')
+    .pipe(sass.sync().on('error', sass.logError))
+    .pipe(gulp.dest('./app/css'))
+    .pipe(browserSync.reload({stream: true, once: true}));
+});
+ 
+gulp.task('sass:watch', function () {
+  gulp.watch('./app/sass/**/*.scss', ['sass']);
+});
+
+gulp.task('default', ['bundle', 'sass:watch'], function () {
     browserSync({
         server: "./app"
     });
