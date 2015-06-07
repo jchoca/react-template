@@ -3,8 +3,6 @@
 
 ## Installation/Usage:
 
-To try this example, follow these 4 simple steps. 
-
 **Step 1**: Install dependencies
 ```bash
 $ npm install
@@ -13,12 +11,6 @@ $ npm install
 **Step 2**: Start Gulp, etc.
 ```bash
 $ npm start
-```
-
-### Additional Info:
-
-Write your React JSX code, in ES6, compiled by Browserify and auto-reload all devices
-when the compilation is complete.
 
 ### `gulpfile.js`:
 ```js
@@ -30,7 +22,7 @@ var browserify   = require('browserify');
 var browserSync  = require('browser-sync');
 var babelify     = require('babelify');
 
-// Input file.
+// Setting debug: true will cause Browserify to generate source maps
 var opts = {
     cache: {},
     packageCache: {},
@@ -38,6 +30,7 @@ var opts = {
 }
 var bundler     = watchify(browserify('./app/js/app.jsx', opts));
 
+// Babel handles jsx transformation and es6 to es5 compilation
 bundler.transform(babelify);
 
 // On updates recompile
@@ -58,16 +51,10 @@ function bundle() {
         .pipe(browserSync.reload({stream: true, once: true}));
 }
 
-/**
- * Gulp task alias
- */
 gulp.task('bundle', function () {
     return bundle();
 });
 
-/**
- * First bundle, then serve from the ./app directory
- */
 gulp.task('default', ['bundle'], function () {
     browserSync({
         server: "./app"
