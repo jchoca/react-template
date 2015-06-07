@@ -1,7 +1,5 @@
 # React Project Template
-## uses Browserify, Browsersync, Babel, and Gulp
-
-## Installation/Usage:
+### uses Browserify, Browsersync, Babel, and Gulp
 
 **Step 1**: Install dependencies
 ```bash
@@ -13,8 +11,9 @@ $ npm install
 $ npm start
 ```
 
-### `gulpfile.js`:
 ```js
+// gulpfile.js
+
 var gulp         = require('gulp');
 var gutil        = require('gulp-util');
 var source       = require('vinyl-source-stream');
