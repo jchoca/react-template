@@ -11,6 +11,7 @@ $ npm install
 **Step 2**: Start Gulp, etc.
 ```bash
 $ npm start
+```
 
 ### `gulpfile.js`:
 ```js
