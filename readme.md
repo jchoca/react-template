@@ -1,5 +1,4 @@
 # React Project Template
-### uses Browserify, Browsersync, Babel, and Gulp
 
 **Step 1**: Install dependencies
 ```bash
