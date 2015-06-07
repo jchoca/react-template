@@ -30,7 +30,7 @@ function bundle() {
             this.emit("end");
         })
         .pipe(source('bundle.js'))
-        .pipe(gulp.dest('./app/js/dist'))
+        .pipe(gulp.dest('./app/build/js'))
         .pipe(browserSync.reload({stream: true, once: true}));
 }
 
@@ -43,21 +43,21 @@ gulp.task('sass:dev', function () {
     .pipe(sourcemaps.init())
     .pipe(sass.sync().on('error', sass.logError))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./app/css'))
+    .pipe(gulp.dest('./app/build/css'))
     .pipe(browserSync.reload({stream: true, once: true}));
 });
 
 gulp.task('sass', function () {
     gulp.src('./app/sass/**/*.scss')
     .pipe(sass.sync().on('error', sass.logError))
-    .pipe(gulp.dest('./app/css'));
+    .pipe(gulp.dest('./app/build/css'));
 });
  
 gulp.task('sass:watch', function () {
   gulp.watch('./app/sass/**/*.scss', ['sass:dev']);
 });
 
-gulp.task('default', ['bundle', 'sass:watch'], function () {
+gulp.task('default', ['bundle', 'sass', 'sass:watch'], function () {
     browserSync({
         server: "./app"
     });
