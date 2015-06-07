@@ -1,13 +1,13 @@
+var babelify     = require('babelify');
+var browserify   = require('browserify');
+var browserSync  = require('browser-sync');
 var gulp         = require('gulp');
+var sass         = require('gulp-sass');
+var sourcemaps   = require('gulp-sourcemaps');
 var gutil        = require('gulp-util');
 var source       = require('vinyl-source-stream');
 var watchify     = require('watchify');
-var browserify   = require('browserify');
-var browserSync  = require('browser-sync');
-var babelify     = require('babelify');
-var sass         = require('gulp-sass');
 
-// Input file.
 var opts = {
     cache: {},
     packageCache: {},
@@ -17,7 +17,6 @@ var bundler     = watchify(browserify('./app/js/app.jsx', opts));
 
 bundler.transform(babelify);
 
-// On updates recompile
 bundler.on('update', bundle);
 
 function bundle() {
@@ -39,15 +38,23 @@ gulp.task('bundle', function () {
     return bundle();
 });
 
-gulp.task('sass', function () {
+gulp.task('sass:dev', function () {
   gulp.src('./app/sass/**/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass.sync().on('error', sass.logError))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./app/css'))
     .pipe(browserSync.reload({stream: true, once: true}));
 });
+
+gulp.task('sass', function () {
+    gulp.src('./app/sass/**/*.scss')
+    .pipe(sass.sync().on('error', sass.logError))
+    .pipe(gulp.dest('./app/css'));
+});
  
 gulp.task('sass:watch', function () {
-  gulp.watch('./app/sass/**/*.scss', ['sass']);
+  gulp.watch('./app/sass/**/*.scss', ['sass:dev']);
 });
 
 gulp.task('default', ['bundle', 'sass:watch'], function () {
