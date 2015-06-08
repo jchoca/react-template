@@ -17,6 +17,7 @@
     "gulp-sourcemaps": "^1.5.2",
     "gulp-util": "^3.0.3",
     "jshint-stylish": "^2.0.0",
+    "jsxhint": "^0.15.1",
     "react": "^0.13.3",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.0.0",
