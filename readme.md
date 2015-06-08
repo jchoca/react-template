@@ -1,13 +1,16 @@
 # React Project Template
 
-**Step 1**: Install dependencies
+**Install dependencies**
 ```bash
 $ npm install
 ```
 
-**Step 2**: Start Gulp, etc.
+**Start Gulp**
 ```bash
 $ npm start
 ```
 
-**Step 3**: Create React components with es6
+**Lint with jsxhint**
+```bash
+$ npm run lint
+```
