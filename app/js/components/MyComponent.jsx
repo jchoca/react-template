@@ -5,7 +5,7 @@ export default class MyComponent extends React.Component {
         super(props);
         this.state = {
             message: "Hello " + props.name
-        }
+        };
     }
 
     render() {
