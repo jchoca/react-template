@@ -5,7 +5,7 @@
 $ npm install
 ```
 
-**Start Gulp**
+**Start Gulp (jsx + sass watching, browsersync)**
 ```bash
 $ npm start
 ```
