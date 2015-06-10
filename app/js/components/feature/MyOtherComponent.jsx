@@ -1,6 +1,6 @@
 var React = require('react');
 
-export default class MyOtherComponent extends React.Component {
+class MyOtherComponent extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -12,3 +12,5 @@ export default class MyOtherComponent extends React.Component {
         return <h1>{this.state.message}</h1>;
     }
 }
+
+module.exports = MyOtherComponent;

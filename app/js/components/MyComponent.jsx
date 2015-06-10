@@ -1,6 +1,6 @@
 var React = require('react');
 
-export default class MyComponent extends React.Component {
+class MyComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -9,6 +9,12 @@ export default class MyComponent extends React.Component {
     }
 
     render() {
-        return <div>{this.state.message}</div>;
+        return (
+            <div>
+                {this.state.message}
+            </div>
+        );
     }
 }
+
+module.exports = MyComponent;
