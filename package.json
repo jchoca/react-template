@@ -5,8 +5,8 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
-    "test": "mocha --compilers .:app/js/test/test_helpers/compiler.js app/js/test/*-test.js",
-    "test-debug": "mocha --debug-brk --compilers .:app/js/test_helpers/compiler.js app/js/test/*-test.js",
+    "test": "mocha --compilers .:app/js/test/helpers/compiler.js app/js/test/*-test.js",
+    "test-debug": "mocha --debug-brk --compilers .:app/js/helpers/compiler.js app/js/test/*-test.js",
     "lint": "jsxhint --es6module --reporter='node_modules/jshint-stylish' app/js/**/*.jsx"
   },
   "license": "MIT",

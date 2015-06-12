@@ -1,5 +1,5 @@
 // Create a fake global `window` and `document` object:
-require('./test_helpers/testdom')('<html><body></body></html>');
+require('./helpers/testdom')('<html><body></body></html>');
 
 // This component has no dependencies
 global.reactModulesToStub = [];
