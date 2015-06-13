@@ -11,6 +11,7 @@ var watchify     = require('watchify');
 var opts = {
     cache: {},
     packageCache: {},
+    // setting debug: true causes source maps to be generated
     debug: true
 }
 var bundler     = watchify(browserify('./app/js/app.jsx', opts));
