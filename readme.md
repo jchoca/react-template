@@ -6,32 +6,26 @@ Mocha with Chai for unit testing.
 
 jsxhint for linting.
 
-**Install dependencies**
+**Getting started**
 ```bash
+$ npm install -g gulp
+$ git clone https://github.com/jchoca/react-template.git myApp
+$ cd myApp
 $ npm install
-```
-
-**Install gulp**
-```bash
-$ sudo npm install -g gulp
-```
-
-**Start Gulp (jsx + sass watching, browsersync)**
-```bash
 $ npm start
 ```
-
-**Lint with jsxhint**
+**Other commands** <br>
+***Lint with jsxhint***
 ```bash
 $ npm run lint
 ```
 
-**Run unit tests**
+***Run unit tests***
 ```bash
 $ npm test
 ```
 
-**Run unit tests with debugging (requires node-inspector)**
+***Run unit tests with debugging (requires node-inspector)***
 ```bash
 $ npm run test-debug
 ```
