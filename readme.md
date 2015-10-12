@@ -14,7 +14,7 @@ $ cd myApp
 $ npm install
 $ npm start
 ```
-**Other commands** <br>
+
 ***Lint with jsxhint***
 ```bash
 $ npm run lint
